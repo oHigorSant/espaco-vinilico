@@ -84,10 +84,11 @@ h2 {
 .check-item { position: relative; padding-left: 2.1rem; font-weight: 600; color: #241f1b; display: flex; align-items: center; }
 .check-item-lg { font-size: 1.06rem; }
 .check-icon {
-  position: absolute; left: 0; width: 1.4rem; height: 1.4rem; border-radius: 50%;
-  background: rgba(143, 42, 32, .12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  position: absolute; left: 0; width: 1.3rem; height: 1.3rem; border-radius: 4px;
+  background: #8f2a20; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(143, 42, 32, 0.2);
 }
-.check-icon svg { stroke: #8f2a20; }
+.check-icon svg { stroke: #fff; }
 .check-icon-final { background: rgba(255, 255, 255, .18); }
 .check-icon-final svg { stroke: #fff; }
 .check-item-final { color: #fff; }
@@ -203,9 +204,10 @@ h2 {
 }
 .hero-feature-icon {
   display: inline-flex; align-items: center; justify-content: center; width: 1.3rem; height: 1.3rem;
-  border-radius: 50%; background: rgba(143, 42, 32, .1); flex-shrink: 0;
+  border-radius: 4px; background: #8f2a20; flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(143, 42, 32, 0.2);
 }
-.hero-feature-icon svg { stroke: #8f2a20; }
+.hero-feature-icon svg { stroke: #fff; }
 
 /* ---- SEÇÃO 2 — DOR ---- */
 .pain-grid { display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: stretch; }
@@ -255,8 +257,11 @@ h2 {
 .bcard-wide { flex-direction: column; align-items: stretch; gap: .9rem; grid-column: auto; }
 .bcard-wide-lead { display: flex; align-items: flex-start; gap: 1.1rem; flex: none; min-width: 0; }
 .bcard-wide-lead .bcard-icon { margin-bottom: 0; flex-shrink: 0; }
+.bcard-qs-wrap { display: flex; flex-direction: column; margin-top: 0.3rem; }
+.bcard-qs-title { font-size: 0.82rem; font-weight: 700; color: #766d63; margin: 0 0 0.8rem; text-transform: uppercase; letter-spacing: .08em; }
 .bcard-qs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: .7rem 1.6rem; margin-top: 0; flex: none; min-width: 0; }
-.bcard-qs li { font-weight: 600; color: #241f1b; }
+.bcard-qs li { display: flex; align-items: center; font-weight: 600; color: #241f1b; }
+.q-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(143, 42, 32, 0.08); color: #8f2a20; font-size: 0.72rem; font-weight: 800; margin-right: 0.6rem; flex-shrink: 0; }
 
 /* ---- SEÇÃO 5/6 — PRODUTOS ---- */
 .product-grid { display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
@@ -430,7 +435,7 @@ h2 {
   .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .bcard-wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); }
   .bcard-wide-lead { flex: 1 1 52%; }
-  .bcard-qs { flex: 1 1 48%; margin-top: 1.6rem; }
+  .bcard-qs-wrap { flex: 1 1 48%; margin-top: 0; }
 
   .product-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
   .product-media-wrap { margin-bottom: 2rem; padding-bottom: 2rem; padding-right: 2rem; }
@@ -537,4 +542,94 @@ h2 {
   cursor: ew-resize;
   z-index: 20;
   margin: 0;
+}
+
+/* ===================== MOBILE OVERRIDES ===================== */
+@media (max-width: 999px) {
+  /* Header center logo */
+  .header-inner {
+    justify-content: center;
+    position: relative;
+  }
+  .nav-toggle-wrap {
+    position: absolute;
+    right: clamp(1.15rem, 4vw, 2rem);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Intercalate images in Piso Vinílico */
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .product-media-wrap {
+    display: contents;
+  }
+  .product-grid > div:nth-child(2) {
+    display: contents;
+  }
+  .product-grid > .media:not(.product-media-sm) { order: 1; }
+  .product-grid > .eyebrow { order: 2; margin-bottom: 0; width: max-content; }
+  .product-grid > h2 { order: 3; margin-bottom: 0.5rem; }
+  .product-grid > .product-lead { order: 4; margin-bottom: 1rem; }
+  .product-grid > .product-media-sm { order: 5; margin-block: 1rem; position: static; max-width: 100%; width: 100%; }
+  .product-grid > .ideal-label { order: 6; margin-top: 0.5rem; }
+  .product-grid > .ideal-list { order: 7; }
+  .product-grid > .price-box { order: 8; }
+  .product-grid > .cta-wrap { order: 9; }
+
+  /* Intercalate images in Teto Vinílico */
+  .ceiling-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .ceiling-intro, .ceiling-media-wrap {
+    display: contents;
+  }
+  .ceiling-grid > .media:not(.ceiling-media-sm) { order: 1; }
+  .ceiling-grid > .eyebrow { order: 2; margin-bottom: 0; width: max-content; }
+  .ceiling-grid > h2 { order: 3; margin-bottom: 0.5rem; }
+  .ceiling-grid > .ceiling-tagline { order: 4; margin-bottom: 1rem; }
+  .ceiling-grid > .ceiling-media-sm { order: 5; margin-block: 1rem; position: static; max-width: 100%; width: 100%; }
+  .ceiling-grid > .ceiling-body { order: 6; }
+  .ceiling-grid > .cta-wrap { order: 7; }
+}
+
+@media (max-width: 699px) {
+  /* Hero section reordering & image above the fold */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .hero-copy {
+    display: contents;
+  }
+  .hero-badge { order: 1; margin-bottom: 0.4rem; width: max-content; }
+  .hero h1 { order: 2; margin-bottom: 0.6rem; }
+  .hero-subtitle { order: 3; margin-bottom: 1rem; }
+  .hero-cta-row { order: 4; margin-top: 0.4rem; margin-bottom: 1.2rem; }
+  .hero-image-wrap {
+    order: 5;
+    margin-bottom: 1.2rem;
+    max-height: 260px;
+    overflow: hidden;
+  }
+  .hero-image-wrap .media {
+    aspect-ratio: 16/10;
+  }
+  .hero-quote-box { order: 6; margin-bottom: 1rem; }
+  .hero-body { order: 7; margin-bottom: 1.2rem; }
+
+  /* Section "Seu projeto merece" checklist layout */
+  .final-checklist {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: max-content;
+    margin-inline: auto;
+    gap: .8rem;
+  }
 }
