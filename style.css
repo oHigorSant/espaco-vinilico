@@ -613,13 +613,14 @@ h2 {
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   .hero-badge { margin-bottom: 0.4rem; width: max-content; }
   .hero h1 { margin-bottom: 0.6rem; }
-  .hero-subtitle { margin-bottom: 1rem; }
+  .hero-subtitle { margin-bottom: 0.6rem; }
   .hero-image-wrap {
-    margin-top: 0.5rem;
+    padding-top: 0;
+    margin-top: 0;
     margin-bottom: 1rem;
     max-height: 280px;
     overflow: hidden;
